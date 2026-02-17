@@ -1,0 +1,116 @@
+birthday.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+<style>
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 500px;
+    animation: fadeIn 2s ease-in-out;
+}
+h1 {
+    color: #e91e63;
+}
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #e91e63;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+button:hover {
+    background: #c2185b;
+}
+.love-letter {
+    display: none;
+    margin-top: 25px;
+    font-size: 1.1em;
+    color: #444;
+    text-align: left;
+    animation: fadeIn 2s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Confetti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: red;
+    top: -10px;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Happy Birthday, [ Mitchell ] 🎂</h1>
+    <p>Today is all about you.</p>
+    <button onclick="openLetter()">Open Your Letter 💌</button>
+    <div class="love-letter" id="letter">
+        <p>My Dearest [ Mitchell ],</p>
+        <p>
+        Twenny two calling ,happy birthday my love. I just want you to know how deeply you are appreciated.
+        You bring warmth, laughter, and light into my life in ways I can’t fully explain.
+        Having you as a friend is something I'll cherish forever because it's kinda healing and even though i don't have words to explain this i just want to show you instead.
+        </p>
+        <p>
+        I hope this year brings you joy that surprises you, love that surrounds you, healing that engulfs you,
+        and success that finds you effortlessly.
+        </p>
+        <p>
+        Happy Birthday. You deserve the world and so much more. ❤️
+        </p>
+    </div>
+</div>
+<script>
+function openLetter() {
+    document.getElementById("letter").style.display = "block";
+    launchConfetti();
+}
+function launchConfetti() {
+    for (let i = 0; i < 100; i++) {
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor = 
+            ["#ff0a54", "#ff477e", "#ff85a1", "#fbb1bd", "#f9bec7"]
+            [Math.floor(Math.random() * 5)];
+        confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(confetti);
+        setTimeout(() => {
+            confetti.remove();
+        }, 5000);
+    }
+}
+</script>
+</body>
+</html>
